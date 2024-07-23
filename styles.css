@@ -1,122 +1,464 @@
+:root {
+  --text-color: #000; /* Default text color for light mode */
+  --text-color-nav : #fff;
+  --text-color-contact : #000000;
+  --background-color: #fff; /* Default background color for light mode */
+}
+
+body.dark-mode {
+  --text-color: #fff; /* Text color for dark mode */
+  --background-color: #1a1a2e; /* Background color for dark mode */
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1a1a2e;
-    color: #fff;
-    animation: fadeIn 1s ease-in-out;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  animation: fadeIn 1s ease-in-out;
+  transition: background-color 0.5s, color 0.5s;
 }
-
+  
 header {
-    background-color: #0f3460;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+  background-color: var(--background-color);
+  padding:  0;
+  position: relative;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+  transition: background-color 0.5s, color 0.5s;
 }
-
+  
+.navbar {
+  position: fixed;
+  top: 10px; /* Added gap from top */
+  width: 40%;
+  transition: top 0.3s;
+  background-color: #000000fa;
+  z-index: 1000;
+  opacity: 1; /* Added opacity setting */
+  margin-left: 10px;
+  border-radius: 20px; /* Added rounded edges */
+}
+  
+.navbar .logo {
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+  
+.navbar .logo:hover {
+  transform: translateY(20px);
+  opacity: 0;
+}
+.navbar nav {
+  display: inline-block;
+  vertical-align: middle;
+}
+  
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+  
+.navbar li {
+  margin: 0 10px;
+}
+  
+.navbar a {
+  text-decoration: none;
+  color: var(--text-color-nav);
+  font-weight: bold;
+  transition: color 0.5s;
+}
+  
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+  
 nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
 }
-
+  
 nav ul li {
-    margin: 0 15px;
+  margin: 0 15px;
 }
-
+  
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, transform 0.3s;
 }
-
+  
 nav ul li a:hover {
-    color: #4CAF50;
+  color: #4CAF50;
+  transform: scale(1.1);
 }
-
+  
 .hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #0f3460, #16213e);
-    text-align: center;
-    padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: var(--hero-background);
+  color: white;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+  
+body.light-mode {
+  --hero-background: linear-gradient(to right, #f5f0ee, #ffffff);
 }
 
+body.dark-mode {
+  --hero-background: linear-gradient(to right, #2c3e50, #4ca1af);
+}
+  
 .hero-content {
-    max-width: 800px;
+  max-width: 600px;
+  padding: 20px;
+  animation: slideIn 1.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-
-.hero h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
+  
+.hero-content h1 {
+  color: var(--text-color); /* Use the text color variable */
+  margin-bottom: 20px;
 }
-
-.hero h1 span {
-    color: #4CAF50;
+  
+.hero-content h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
 }
-
-.hero h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
+  
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: var(--text-color); /* Use the text color variable */
 }
-
-.hero p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+  
+.hero-content button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
 }
-
-.hero button {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  
+.hero-content button:hover {
+  background-color: #45a049;
+  transform: scale(1.1);
 }
-
-.hero button:hover {
-    background-color: #45a049;
+  
+.stickers {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
 }
-
+  
+.sticker {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s;
+}
+  
+.sticker:hover {
+  transform: scale(1.2);
+}
+  
 .section {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: #1a1a2e;
+  height: 100vh; /* Full window height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  color: var(--text-color); /* Use the text color variable */
+  transition: background-color 0.5s;
+}
+  
+body.light-mode .section {
+  background-color: #fff;
 }
 
+body.dark-mode .section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+}
+  
 .section h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #4CAF50;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #4CAF50;
 }
-
+  
 .section p, .section h3 {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: var(--text-color); /* Use the text color variable */
 }
-
+  
 .section h3 {
-    color: #fff;
+  color: #fff;
 }
-
+  
 a {
-    color: #4CAF50;
-    text-decoration: none;
+  color: #4CAF50;
+  text-decoration: none;
 }
-
+  
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+  
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+  
+.mode-toggle-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+#mode-toggle {
+  display: none;
+}
+
+#mode-toggle-label {
+  width: 50px;
+  height: 50px;
+  background-color: var(--background-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.5s, background-color 0.5s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#mode-toggle-label i {
+  font-size: 24px;
+  transition: opacity 0.5s, color 0.5s;
+  color: var(--text-color);
+}
+
+#mode-toggle:checked + #mode-toggle-label .fa-sun {
+  opacity: 0;
+}
+
+#mode-toggle:checked + #mode-toggle-label .fa-moon {
+  opacity: 1;
+}
+
+#mode-toggle-label .fa-sun {
+  opacity: 1;
+}
+
+#mode-toggle-label .fa-moon {
+  opacity: 0;
+}
+
+#mode-toggle:checked + #mode-toggle-label {
+  transform: rotate(360deg);
+}
+
+body.light-mode {
+  --background-color: #fff;
+  --text-color: #000; /* Text color for light mode */
+}
+
+body.dark-mode {
+  --background-color: #1a1a2e;
+  --text-color: #fff; /* Text color for dark mode */
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 0;
+  transform: translateX(-20px);
+  animation: titleSlide 1s ease-out;
+  color: var(--text-color); /* Use the text color variable */
+}
+
+.hero-name {
+  font-size: 5rem;
+  background: linear-gradient(to right, #bf44f8, #236bf0); /* Pinkish blue contrast gradient */
+  -webkit-background-clip: text;
+  background-clip: text; /* Standard property for compatibility */
+  color: transparent;
+  animation: colorChange 3s infinite alternate;
+  margin-left: 100px;
+  width: 100%;
+  margin-top: 0%;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes titleSlide {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(-20px); opacity: 1; }
+}
+
+@keyframes colorChange {
+  from { color: #ffeb3b; }
+  to { color: #ff5722; }
+}
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-in-out;
+  color: #000; /* Override text color to black */
+  width: 80%; /* Increased width */
+  height: 500px; /* Increased height */
+}
+
+.about-container p {
+  flex: 1;
+  margin-right: 20px;
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #000; /* Override text color to black */
+}
+
+.profile-image {
+  max-width: 350px; /* Increased width */
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  padding: 20px;
+  width: 80%; /* Increased width */
+  height: 400px; /* Increased height */
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.skill i {
+  font-size: 3em;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.skill p {
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.skill:hover i {
+  transform: scale(1.2);
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-in-out;
+  width: 80%; /* Increased width */
+  height: 500px; /* Increased height */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: var(--text-color-contact);
+}
+
+.contact-item i {
+  font-size: 2em;
+  margin-right: 10px;
+  color: #FFA07A; /* Changed color to orange */
+  transition: transform 0.3s ease-in-out;
+  
+}
+
+.contact-item-linkedin  i {
+    
+  color: #2274ee; /* Changed color to orange */
+
+  
+}
+
+.contact-item p, .contact-item a {
+  margin: 0;
+  color: var(--text-color-contact);
+}
+
+.contact-item:hover i {
+  transform: scale(1.2);
+}
+
+.contact-item a {
+  text-decoration: none;
+  color: #2274ee; /* Changed color to orange */
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
 }
