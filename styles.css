@@ -35,7 +35,7 @@ header {
 .navbar {
   position: fixed;
   top: 10px; /* Added gap from top */
-  width: 40%;
+  width: 50vw; /* Adjusted width to be dynamic based on viewport width */
   transition: top 0.3s;
   background-color: #000000fa;
   z-index: 1000;
@@ -43,7 +43,6 @@ header {
   margin-left: 10px;
   border-radius: 20px; /* Added rounded edges */
 }
-  
 .navbar .logo {
   display: inline-block;
   vertical-align: middle;
@@ -461,4 +460,46 @@ body.dark-mode {
 
 .contact-item a:hover {
   text-decoration: underline;
+}
+
+/* For tablets and larger screens */
+@media (min-width: 768px) {
+  .navbar {
+    width: 70vw;
+  }
+  .hero-content {
+    max-width: 800px;
+  }
+  .about-container, .skills-container, .contact-container {
+    width: 90%;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 767px) {
+  .navbar {
+    width: 100vw;
+    top: 0;
+    border-radius: 0;
+  }
+  .hero-content {
+    padding: 10px;
+  }
+  .about-container, .skills-container, .contact-container {
+    width: 100%;
+    padding: 10px;
+  }
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-name {
+    font-size: 3rem;
+  }
+  .profile-image {
+    max-width: 100%;
+    height: auto;
+  }
 }
