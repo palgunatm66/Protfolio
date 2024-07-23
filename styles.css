@@ -1,56 +1,110 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #1a1a2e;
+    color: #fff;
     animation: fadeIn 1s ease-in-out;
 }
 
-.container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+header {
+    background-color: #0f3460;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-h1 {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 10px;
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
     color: #4CAF50;
 }
 
-h2 {
-    font-size: 1.5em;
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f3460, #16213e);
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3em;
     margin-bottom: 10px;
-    color: #333;
 }
 
-h3 {
+.hero h1 span {
+    color: #4CAF50;
+}
+
+.hero h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.hero p {
     font-size: 1.2em;
-    margin-bottom: 5px;
-    color: #555;
+    margin-bottom: 30px;
 }
 
-p {
+.hero button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
     font-size: 1em;
-    line-height: 1.6;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero button:hover {
+    background-color: #45a049;
 }
 
 .section {
-    margin-bottom: 20px;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #1a1a2e;
 }
 
-.section:hover {
-    transform: translateY(-10px);
+.section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+.section p, .section h3 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.section h3 {
+    color: #fff;
 }
 
 a {
